@@ -1,0 +1,75 @@
+@media screen and (min-width:576px) and (max-width: 767px)
+    .header__nav
+        padding: 3% 5%
+    .header__nav__ul
+        width: 100%
+        justify-content: center
+        margin: auto
+        li
+            @for $list from 2 through 4
+                &:nth-child(#{$list})
+                    margin-left: 32px
+    .header__nav__i
+        display: none
+
+    .header__container
+        padding: 23px 5% 46px 5%
+
+    .header__container__banner
+        grid-column: 3/span 4
+        grid-row: 1/span 2
+
+    .header__container__title
+        grid-column: 1 / span 2
+        grid-row: 1
+
+    .header__container__info
+        grid-column: 1 / span 2
+        grid-row: 2
+
+    .header__container__button
+        grid-column: 1 / span 2
+        grid-row: 3
+
+    .header__container__avatar-group
+        grid-column: 1 / span 2
+        grid-row: 4
+    .popular-tools , .new-comer
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        gap: 30px
+        margin-top: 50px
+    .main__card
+        width: 360px
+        height: 432px
+        border: 1px solid #ccc
+        border-radius: 8px
+        padding: 20px
+        &:hover
+            box-shadow: 0px 32px 56px rgba(0, 0, 0, 0.08)
+        .image-card
+            background-color: #F5F5F5
+            width: 100%
+            img
+                width: 100px
+                margin: 40px 115px
+    .description
+        display: flex
+        flex-wrap: wrap
+        width: 100%
+        h4
+            width: 80%
+        p
+            text-align: left
+            color: $dark-blue
+
+    .tag
+        display: flex
+        gap: 16px
+        margin-top: 40px
+        p
+            background-color: #E1EBFB
+            color: #0086D6
+            padding: 0 10px
+            border-radius: 4px
