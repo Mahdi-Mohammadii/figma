@@ -6,7 +6,6 @@ import Users from "../../users";
 const LoginPage = (props) => {
   const [remember, setRemember] = useState("false");
   const [token, setToken] = useState("");
-  
 
   const Section = styled.section`
     display: flex;
@@ -38,7 +37,7 @@ const LoginPage = (props) => {
       var randomNumber = Math.floor(Math.random() * chars.length);
       password += chars[randomNumber];
     }
-    setToken(password)
+    setToken(password);
     if (remember) {
       localStorage.setItem("token", password);
     } else {
@@ -74,7 +73,11 @@ const LoginPage = (props) => {
                 />
               </Div>
               <Div>
-              <input type="Submit" className="header__nav__button" onClick={props.changeDirectionHandler}/>
+                <input
+                  type="Submit"
+                  className="header__nav__button"
+                  onClick={props.changeDirectionHandler}
+                />
               </Div>
             </Form>
             <Form onSubmit={tokenGenerator}>
