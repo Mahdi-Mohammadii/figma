@@ -6,6 +6,7 @@ import Users from "../../users";
 const LoginPage = (props) => {
   const [remember, setRemember] = useState("false");
   const [token, setToken] = useState("");
+  const [userInfo, setUserInfo] = useState("");
 
   const Section = styled.section`
     display: flex;
@@ -44,6 +45,17 @@ const LoginPage = (props) => {
       sessionStorage.setItem("token", token);
     }
   }
+
+  function userInfoHandler(e) {
+    let info = {
+      ...userInfo,
+      [e.target.name]:
+        e.target.name === "rememberMe" ? e.target.checked : e.target.value,
+    };
+    setUserInfo(info);
+    console.log(userInfo);
+  }
+
   return (
     <>
       {localStorage.getItem("token") || sessionStorage.getItem("token") ? (
@@ -58,18 +70,30 @@ const LoginPage = (props) => {
               <h3 className="Login__h3">Login</h3>
               <Div>
                 <Label>Username</Label>
-                <input type="text" id="username" name="username" />
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={userInfo?.username || ""}
+                  onChange={userInfoHandler}
+                />
               </Div>
               <Div>
                 <Label>Password</Label>
-                <input type="password" id="password" name="password" />
+                <input
+                  type="password"
+                  onChange={userInfoHandler}
+                  id="password"
+                  name="password"
+                  value={userInfo?.password || ""}
+                />
               </Div>
               <Div>
                 <Label>Remember Me</Label>
                 <input
                   type="checkbox"
                   checked={remember}
-                  onClick={rememberHandler}
+                  onChange={rememberHandler}
                 />
               </Div>
               <Div>
